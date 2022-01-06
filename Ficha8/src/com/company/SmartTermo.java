@@ -94,10 +94,9 @@ public class SmartTermo extends JFrame{
             @Override
             public void run() {
 
-
                 String celsiusDes = jLabelDesejadaValue.getText();
                 String celsius = jLabelAtualValue.getText();
-                if(Double.parseDouble(celsiusDes) > Double.parseDouble(celsius)){
+                if(Double.parseDouble(celsiusDes) >= Double.parseDouble(celsius)){
                     heaterOn = false;
                 }
 
@@ -106,7 +105,7 @@ public class SmartTermo extends JFrame{
                 if(v % 2 == 0 && heaterOn){
                     currentTemp = Double.parseDouble(celsiusDes) + 0.5;
                 }else {
-                    // currentTemp = Double.parseDouble(celsiusDes) - 0.5;
+                    currentTemp = Double.parseDouble(celsiusDes) - 0.5;
                 }
                 jLabelDesejadaValue.setText(String.valueOf(currentTemp));
             }
@@ -144,7 +143,7 @@ public class SmartTermo extends JFrame{
             }
         }
 
-        String celsiusDes = jLabelDesejada.getText();
+        String celsiusDes = jLabelDesejadaValue.getText();
         if(cels > Double.parseDouble(celsiusDes)){
             heaterOn = true;
         }else{
